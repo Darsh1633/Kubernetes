@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: pod
+spec:
+  selector:
+    app: Darshan
+  ports:
+  - port: 3000
+    targetPort: 3000
+
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod
+  labels:
+    app: Darshan
+spec:
+  containers:
+  - name: react-container
+    image: dbonde/myreactapp:01   # Replace with your Docker image name
+    ports:
+    - containerPort: 3000
+    
